@@ -90,7 +90,7 @@ def draw_landmarks_on_image(rgb_image, detection_result):
 
 def object_detection(camera_index):
 
-    model_path = '/models/efficientdet_lite0.tflite'
+    model_path = 'models/efficientdet_lite0.tflite'
 
     base_options = python.BaseOptions(model_asset_path=model_path)
     options = vision.ObjectDetectorOptions(base_options=base_options,
@@ -139,7 +139,7 @@ def gesture_recognition(camera_index):
     mp_drawing = mp.solutions.drawing_utils
     mp_drawing_styles = mp.solutions.drawing_styles
 
-    model_path = '/models/gesture_recognizer.task'
+    model_path = 'models/gesture_recognizer.task'
 
     base_options = python.BaseOptions(model_asset_path=model_path)
     options = vision.GestureRecognizerOptions(base_options=base_options)
@@ -206,7 +206,7 @@ def gesture_recognition(camera_index):
 
 def face_landmarks(camera_index):
 
-    model_path = '/models/face_landmarker.task'
+    model_path = 'models/face_landmarker.task'
 
     base_options = python.BaseOptions(model_asset_path=model_path)
     options = vision.FaceLandmarkerOptions(base_options=base_options,
