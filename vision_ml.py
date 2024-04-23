@@ -12,6 +12,8 @@ from streamlit_option_menu import option_menu
 from streamlit_webrtc import webrtc_streamer
 from typing import List, NamedTuple
 
+from sample_utils.turn import get_ice_servers
+
 
 def visualize(image, detection_result) -> np.ndarray:
 
@@ -233,7 +235,7 @@ def main():
             media_stream_constraints={"video": True, "audio": False},
             video_frame_callback=object_detection,
             rtc_configuration={
-                "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}],
+                "iceServers": get_ice_servers(),
                 "iceTransportPolicy": "relay",
             },
         )
