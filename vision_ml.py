@@ -232,6 +232,10 @@ def main():
             key="object-detection", 
             media_stream_constraints={"video": True, "audio": False},
             video_frame_callback=object_detection,
+            rtc_configuration={
+                "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}],
+                "iceTransportPolicy": "relay",
+            },
         )
     if selected == "Hand Tracking":
         title_project.subheader("Hand Tracking")
