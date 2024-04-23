@@ -3,4 +3,4 @@ mediapipe
 numpy
 streamlit-option-menu
 streamlit-webrtc
-twilio
+twilio~=8.10.1

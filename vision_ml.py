@@ -9,7 +9,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from mediapipe.framework.formats import landmark_pb2
 from streamlit_option_menu import option_menu
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer, WebRtcMode
 from typing import List, NamedTuple
 
 from sample_utils.turn import get_ice_servers
@@ -246,6 +246,11 @@ def main():
             key="object-detection", 
             media_stream_constraints={"video": True, "audio": False},
             video_frame_callback=gesture_recognition,
+            mode=WebRtcMode.SENDRECV,
+            async_processing=True,
+            rtc_configuration={  # Add this config
+                "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+            }
         )
         if webrtc_ctx.state.playing:
             labels_placeholder = st.empty()
