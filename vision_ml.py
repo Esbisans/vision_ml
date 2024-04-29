@@ -248,9 +248,10 @@ def main():
             video_frame_callback=gesture_recognition,
             mode=WebRtcMode.SENDRECV,
             async_processing=True,
-            rtc_configuration={  # Add this config
-                "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-            }
+            rtc_configuration={
+                "iceServers": get_ice_servers(),
+                "iceTransportPolicy": "relay",
+            },
         )
         if webrtc_ctx.state.playing:
             labels_placeholder = st.empty()
@@ -264,6 +265,10 @@ def main():
             key="object-detection", 
             media_stream_constraints={"video": True, "audio": False},
             video_frame_callback=face_landmarks,
+            rtc_configuration={
+                "iceServers": get_ice_servers(),
+                "iceTransportPolicy": "relay",
+            },
         )
 
 
