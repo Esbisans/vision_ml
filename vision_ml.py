@@ -2,6 +2,7 @@ import av
 import cv2 
 import queue
 import numpy as np
+import pandas as pd
 import streamlit as st
 import mediapipe as mp
 from mediapipe import solutions
@@ -239,6 +240,17 @@ def main():
                 "iceTransportPolicy": "relay",
             },
         )
+        file_path = 'coco_labels.txt'
+        with open(file_path, "r") as f:
+            labels = f.readlines()
+        
+        labels = [label.strip() for label in labels]
+        st.write('objects classes')
+        data = {'Class': labels}
+
+        st.dataframe(pd.DataFrame(data))
+
+        
     if selected == "Hand Tracking":
         title_project.subheader("Hand Tracking")
 

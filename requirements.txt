@@ -1,6 +1,7 @@
 opencv-python-headless
 mediapipe
 numpy
+pandas
 streamlit-option-menu
 streamlit-webrtc
 twilio~=8.10.1
