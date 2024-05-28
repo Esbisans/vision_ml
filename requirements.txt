@@ -2,6 +2,7 @@ opencv-python-headless
 mediapipe
 numpy
 pandas
-streamlit-option-menu
-streamlit-webrtc
+streamlit~=1.32.2
+streamlit-option-menu~=0.3.12
+streamlit-webrtc~=0.47.6
 twilio~=8.10.1
