@@ -50,3 +50,5 @@ The face landmark detection module identifies key points on a person's face, suc
 ## Project's Link 
 
 [visionml.streamlit.app](https://visionml.streamlit.app/)
+
+(It might go into sleep mode due to inactivity because of Streamlit's free tier.)
